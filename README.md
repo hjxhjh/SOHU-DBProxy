@@ -1,11 +1,11 @@
 ###一、简介
 
 SOHU-DBProxy是由 搜狐 数据库团队开发维护的一个基于MySQL协议的数据中间层项目。它在MySQL官方推出的MySQL-Proxy 0.8.3版本的基础上，
-修改了大量bug，添加了很多功能特性。现在已经在sohu的公有云上使用，也在sohu视频和焦点业务线上使用
+修改了大量bug，添加了很多功能特性。现在已经在sohu的多个业务线上使用
     
 主要功能：
 
-1 事务级的多路连接复用
+1 即使在同一个连接(只要不在同一个事务中)也能连接复用
 
 2 负载均衡提高读性能，支持动态扩展
 
@@ -17,11 +17,14 @@ SOHU-DBProxy是由 搜狐 数据库团队开发维护的一个基于MySQL协议�
 
 6 读写分离（当前版本没有，代码和测试已经完成，没有合并到当前版本）
 
+###二、最近更新
 
+* 2013/12/25 [更新了文档](doc//case-study/sohu-cloud/dbha.md)，描述一个线上如何使用dbproxy的案例，通过(keepalived+dbproyx+mysql主从) 构架来提供无单点的mysqld服务，
+ 
 
-###二、dbproxy详细说明
+###三、dbproxy详细说明
 
-[1.二进制安装的包(支持redhat5/6)] (bin/)  
+[1.二进制安装的包:支持redhat5/6](bin/)  
 
 [2.快速了解dbproxy](doc/Getting_Started_with_DBProxy.pdf)
 
@@ -35,8 +38,10 @@ SOHU-DBProxy是由 搜狐 数据库团队开发维护的一个基于MySQL协议�
 
 [7.dbproxy的内部设计文档](doc/design_internal_doc)
 
-###三、dbproxy的需求及Bug反馈方式
+[8.一个线上如何使用dbproxy的案例，通过(keepalived+dbproyx+mysql主从) 构架来提供无单点的mysqld服务](doc//case-study/sohu-cloud/dbha.md)
 
-如果用户在实际的应用场景中有新的功能需求，或者在使用的过程中发现了bug，
-欢迎用户发邮件至dba@sohu-inc.com，或者通过qq群164449733,与我们取得联系，我们将及时回复。
+###四、dbproxy的需求及Bug反馈方式
+
+如果用户在实际的应用场景中有新的功能需求，或者在使用的过程中发现了 bug，
+欢迎用户通过 QQ 群 164449733，与我们取得联系，我们将及时回复。
 
